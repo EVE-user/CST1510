@@ -25,10 +25,10 @@ percent=(float(rows_loaded)/float(rows_expected))*100
 print("="*34)
 print(f"RECORD CHECK     -     {record_id}")
 print("="*34)
-print(f"Rows_loaded:          {rows_loaded:>10.2f}")
-print(f"Rows_expected:        {rows_expected:>10.2f}")
-print(f"Percent:              {free:>10.2f}")
-print(f"Free:                 {percent:>10.2f} %")
+print(f"Rows_loaded:           {rows_loaded:>10.2f}")
+print(f"Rows_expected:         {rows_expected:>10.2f}")
+print(f"Free:                  {free:>10.2f}")
+print(f"Percent:               {percent:>10.2f} %")
 print("="*34)
 
 
