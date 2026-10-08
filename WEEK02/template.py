@@ -35,7 +35,7 @@ print("=" * 34)
 print(f"  Rows_loaded:       {rows_loaded:>10.2f}")
 print(f"  Rows_expected:     {rows_expected:>10.2f}")
 print(f"  Percent:           {percent:>10.2f}%")
-print(f"  Free:              {rows_expected-rows_loaded:>10.2f}")
+print(f"  Free:              {difference:>10.2f}")
 print(f"  Status:            {status:>10}")
 print("=" * 34)
 
