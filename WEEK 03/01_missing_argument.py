@@ -2,6 +2,7 @@
 # Run it, read the last line, then fix it.
 
 def status_of(percent, warning_at):
+    """Return the status of the percent and the warning_at"""
     if percent >= 100:
         return "OVER LIMIT"
     elif percent >= warning_at:

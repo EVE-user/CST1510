@@ -16,13 +16,13 @@ rows_loaded=float(1187)
 rows_expected=float(1200)   
 
 def check(rows_expected,rows_loaded):
-    """Returns the difference and percent of the rows_expected and the rows_loaded"""
+    """Return the difference and percent of the rows_expected and the rows_loaded"""
     difference = rows_expected - rows_loaded  
     percent=(rows_loaded/rows_expected)*100
     return difference,percent
 
 def check_status_of(percent):
-    """Returns the status based on the percent"""
+    """Return the status based on the percent"""
     if percent >= 100:
       return "OVER LIMIT"
     elif percent >= 90:
@@ -31,7 +31,7 @@ def check_status_of(percent):
       return "OK"
 
 def print_report():
-    """Provides the output of the report and keeps providing output until quit is typed"""
+    """Print the report and keep providing output until quit is typed"""
     over_count = 0
 
     while True:

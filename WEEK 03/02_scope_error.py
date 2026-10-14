@@ -2,6 +2,7 @@
 # Run it, read the last line, then fix it.
 
 def check(value, limit):
+    """Return the status of the value and limit"""
     if value > limit:
        status = "OVER LIMIT" 
     else:
