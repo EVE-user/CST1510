@@ -1,0 +1,3 @@
+survey_2026,WARNING
+profits_2026,WARNING
+losses_2026,OK
