@@ -15,7 +15,7 @@ dataset_name="survey_2026"
 rows_loaded=float(1187)   
 rows_expected=float(1200)   
 
-def check(rows_expected,rows_loaded):
+def check_record(rows_expected,rows_loaded):
     """Return the difference and percent of the rows_expected and the rows_loaded"""
     difference = rows_expected - rows_loaded  
     percent=(rows_loaded/rows_expected)*100
