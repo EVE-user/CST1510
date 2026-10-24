@@ -12,23 +12,23 @@ Work through the numbered sections in order. Each one tells you what it must do.
 Delete these instructions as you replace them with your code.
 """
 
-
-dataset_name="survey_2026"    
-rows_loaded=float(1187)   
-rows_expected=float(1200)   
-
+# Input the information entered by the user.
 dataset_name = input("Dataset Name: ")    
-rows_loaded = float(input("Rows Loaded: "))    
+rows_loaded = float(input("Rows Loaded: ")) # Convert input to float.
 rows_expected = float(input("Rows Expected: "))  
 
-difference = rows_expected - rows_loaded  
-percent=(rows_loaded/rows_expected)*100
-if percent >= 100:
-    status="OVER LIMIT"
+difference = rows_expected - rows_loaded   # Calculate the difference of the loaded and expected rows.
+percent = (rows_loaded / rows_expected) * 100  # Calculate the percentage of the loaded rows to the expected rows.
+if percent >= 100: # Compare the percentage to the limit and provide status.
+    status = "OVER LIMIT"
+
 elif percent >= 90:
-    status="WARNING"
+    status = "WARNING"
+
 else:
-    status="OK"
+    status = "OK"
+
+# Print the record in a bordered report.
 print("=" * 34)
 print(f"  RECORD CHECK  -    {dataset_name}")
 print("=" * 34)
