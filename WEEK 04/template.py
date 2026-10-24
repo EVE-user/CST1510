@@ -12,23 +12,25 @@ Work through the numbered sections in order. Each one tells you what it must do.
 Delete these instructions as you replace them with your code.
 """
 
-def check_record(record):
-    """Return the difference and percent of the rows_expected and the rows_loaded"""
-    difference =record['rows_expected'] - record['rows_loaded']
-    percent=(record['rows_loaded']/record['rows_expected'])*100
-    return difference,percent
+def check_record (record):
+    """Return the difference and percent of the expected and loaded rows."""
+    difference = record['rows_expected'] - record['rows_loaded']
+    percent = (record['rows_loaded'] / record['rows_expected']) * 100
+    return difference, percent
 
-def check_status_of(percent):
-    """Return the status based on the percent"""
-    if percent >= 100:
+def check_status_of (percent):
+    """Return the status based on the percent."""
+    if percent >= 100: # Compare the percentage to the given limit and return status.
       return "OVER LIMIT"
+    
     elif percent >= 90:
       return "WARNING"
+    
     else:
       return "OK"
   
-def print_report(record,difference,percent,status):
-    """Print the output of the reports"""
+def print_report(record, difference, percent, status):
+    """Print the bordered report of the records."""
     print()
     print("=" * 34)
     print(f"  RECORD CHECK  -    {record['dataset_name']}")
@@ -42,50 +44,55 @@ def print_report(record,difference,percent,status):
     
         
 def load_records(path):
-    """Open the  file and return a list of dictionaries"""
-    records=[]
+    """Read the  file and return a list of record dictionaries."""
+    records = [] # Create an empty list to store the records.
     
-    #open the file using the given path.
+    # Open the file using the given path.
     with open(path) as f:
          for line in f:
-             line =line.strip()
-             dataset_name,rows_loaded,rows_expected=line.split(",")
+             line = line.strip() # Remove the white space from the beginning to the end of the line.
+             dataset_name, rows_loaded, rows_expected = line.split(",") # Split the line to three values using a comma.
 
-             record={
-                   "dataset_name":dataset_name,
-                   "rows_loaded":float(rows_loaded),
-                   "rows_expected":float(rows_expected)
+            # Create a record dictionary.
+             record = {
+                   "dataset_name": dataset_name,
+                   "rows_loaded": float(rows_loaded),
+                   "rows_expected": float(rows_expected)
 
             }
          
-             records.append(record)
+             records.append(record) # Add the record dictionary to the list.
 
     return records
 
 
 
-#try to load the records from the file.
+# Try to load the records from the file.
 try:
-    records=load_records("records_file.txt")
+    records = load_records("records_file.txt")
 
+# Handle the FileNotFoundError.
 except FileNotFoundError:
     print("Error:records_file.txt was not found.")
-    records=[]
+    records = [] # Create an empty list to store records.
 
-#open the output file and write the results.
-over_count=0
+
+over_limit_count = 0 # Start the count of OVER LIMIT by zero.
+
+# Open the file and write the results.
 with open ("output_file.txt","w") as f:
-    for record in records:
-        
-        difference,percent=check_record(record)
-        status=check_status_of(percent)
+   
+    for record in records:        
+        difference,percent = check_record(record) # Calculate the difference and percentage of the record.
+        status = check_status_of(percent)  # Determine status of the record based on the percentage.
         f.write(f"{record['dataset_name']},{status}\n")
-        print_report(record,difference,percent,status)
+
+        print_report(record,difference,percent,status) # Print a bordered report of the record.
 
         if status == "OVER LIMIT":
-            over_count +=1
+            over_limit_count += 1  # Increase the count by one.
 
-print(f"\nTotal OVER LIMIT:{over_count}")
+print(f"\nTotal OVER LIMIT: {over_limit_count}")
 print("Results saved to output_file.txt")
          
 
