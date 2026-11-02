@@ -1,0 +1,6 @@
+dataset,rows_loaded,rows_expected
+survey_2026,1187,1200
+profits_2026,1300,1400
+losses_2026,850,1500
+refunds_2026,900,1000
+giveaways_2026,500,1700

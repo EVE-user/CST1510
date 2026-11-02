@@ -1,0 +1,6 @@
+dataset,rows_loaded,rows_expected,percent,status
+survey_2026,1187,1200,98.9,WARNING
+profits_2026,1300,1400,92.9,WARNING
+losses_2026,850,1500,56.7,OK
+refunds_2026,900,1000,90.0,WARNING
+giveaways_2026,500,1700,29.4,OK
