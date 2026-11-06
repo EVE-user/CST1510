@@ -22,15 +22,15 @@ class Record:
 
     def percent(self):
         """Return the loaded and expected rows."""
-        return(self.rows_loaded / self.rows_expected)*100
+        return(self.rows_loaded / self.rows_expected)*100 # Calculate the percentage of the loaded rows to the expected rows.
 
     def difference(self):
         """Return the difference of the expected and loaded rows."""
-        return(self.rows_expected - self.rows_loaded)
+        return(self.rows_expected - self.rows_loaded) # Calculate difference between the expected rows and the loaded rows.
     
     def status(self):
         """Return the status based on the percentage of the expected and loaded rows."""
-        x = self.percent()
+        x = self.percent() # Assign x as the percentage.
         if x >= 100: # Compare the percentage to the given limit and return the status.
          return "OVER LIMIT"
         
@@ -59,8 +59,8 @@ def load_records(path):
     """Load the records from the given file."""
     records = [] # Create an empty list to store the records.
 
-    with open (path) as f:
-        for line in f:
+    with open (path) as f: # Open the path of the file given.
+        for line in f:# Loop through each line in the file.
              line = line.strip() # Remove the white spaces at the beginning and end of the line.
              dataset_name,rows_loaded,rows_expected = line.split(",")
              records.append(Record(dataset_name, float(rows_loaded), float(rows_expected)))
@@ -78,7 +78,7 @@ for record in records:
     percent = record.percent()
     status = record.status()
 
-    record.print_report(difference, percent, status) 
+    record.print_report(difference, percent, status) # Print the difference, percentage and status to the report.
 
     if status == "OVER LIMIT":
         over_limit_count += 1 # Increase the count by one.
