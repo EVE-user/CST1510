@@ -62,7 +62,7 @@ def load_records(path):
     with open (path) as f: # Open the path of the file given.
         for line in f:# Loop through each line in the file.
              line = line.strip() # Remove the white spaces at the beginning and end of the line.
-             dataset_name,rows_loaded,rows_expected = line.split(",")
+             dataset_name,rows_loaded,rows_expected = line.split(",") # Split the line into three values at each comma.
              records.append(Record(dataset_name, float(rows_loaded), float(rows_expected)))
     return records
 
