@@ -51,7 +51,7 @@ def load_records(path):
     with open(path) as f:
          for line in f: # Loop over each line in the file.
              line = line.strip() # Remove the white space from the beginning to the end of the line.
-             dataset_name, rows_loaded, rows_expected = line.split(",") # Split the line to three values using a comma.
+             dataset_name, rows_loaded, rows_expected = line.split(",") # Split the line at each comma into three lines.
 
             # Create a record dictionary.
              record = {
